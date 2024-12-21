@@ -14,7 +14,7 @@ lerna-debug.log*
 src/config/
 src/sdk/
 src/types/
-src/utils/
+src/utils2/
 
 # Caches
 

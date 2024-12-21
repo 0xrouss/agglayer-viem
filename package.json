@@ -1,6 +1,6 @@
 {
     "name": "agglayer-viem",
-    "version": "1.0.0",
+    "version": "0.1.1",
     "description": "A Viem extension to interact with the Agglayer Universal Bridge, providing environment-agnostic methods for bridging assets.",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
