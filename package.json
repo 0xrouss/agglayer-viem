@@ -1,0 +1,42 @@
+{
+    "name": "agglayer-viem",
+    "version": "1.0.0",
+    "description": "A Viem extension to interact with the Agglayer Universal Bridge, providing environment-agnostic methods for bridging assets.",
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "scripts": {
+        "build": "tsc && tsc --project tsconfig.build-cjs.json",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "bridge",
+        "sdk",
+        "blockchain",
+        "viem",
+        "agglayer",
+        "polygon"
+    ],
+    "author": "0xrouss",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/0xrouss/agglayer-viem.git"
+    },
+    "bugs": {
+        "url": "https://github.com/0xrouss/agglayer-viem/issues"
+    },
+    "peerDependencies": {
+        "viem": "^2.20.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0",
+        "@types/node": "^18.0.0"
+    }
+}
