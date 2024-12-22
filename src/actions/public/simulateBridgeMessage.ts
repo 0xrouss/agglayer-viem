@@ -1,5 +1,6 @@
-import { Account, Address, createPublicClient, http, WalletClient } from "viem";
+import { Account, Address, PublicClient } from "viem";
 import { getBridgeAddress } from "../../utils/getBridgeAddress";
+import { simulateContract } from "viem/actions";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
 
 /**
@@ -15,39 +16,30 @@ import { polygonZkEvmBridgeV2Abi } from "../../abis";
  * @param account
  * @returns
  */
-export async function bridgeAsset(
-    client: WalletClient,
+export async function simulateBridgeMessage(
+    client: PublicClient,
     originNetwork: number,
     destinationNetwork: number,
     destinationAddress: Address,
     amount: bigint,
-    token: Address,
     forceUpdateGlobalExitRoot: Boolean,
-    permitData: string,
+    metadata: any, //TODO
     account: Account
 ) {
     const bridgeAddress: Address = getBridgeAddress(originNetwork);
 
-    const publicClient = createPublicClient({
-        chain: client.chain,
-        transport: http(),
-    });
-
-    const { request } = await publicClient.simulateContract({
+    return simulateContract(client, {
         address: bridgeAddress,
         abi: polygonZkEvmBridgeV2Abi,
-        functionName: "bridgeAsset",
+        functionName: "bridgeMessage",
         args: [
             destinationNetwork,
             destinationAddress,
-            amount,
-            token,
             forceUpdateGlobalExitRoot,
-            permitData,
+            metadata,
         ],
         account,
         value: amount,
+        chain: client.chain,
     });
-
-    return await client.writeContract(request);
 }
