@@ -1,4 +1,4 @@
-import { Account, Address, createPublicClient, http, WalletClient } from "viem";
+import { Account, Address, WalletClient } from "viem";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
 import { getBridgeAddress } from "../../utils/getBridgeAddress";
 import { writeContract } from "viem/actions";
