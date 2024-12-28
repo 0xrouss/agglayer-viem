@@ -10,12 +10,6 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-# Not ready
-src/config/
-src/sdk/
-src/types/
-src/utils2/
-
 # Caches
 
 .cache
