@@ -2,6 +2,11 @@ import { Chain, mainnet as baseMainnet } from "viem/chains";
 
 export const mainnet: Chain = {
     ...baseMainnet,
+    rpcUrls: {
+        default: {
+            http: ["https://eth.llamarpc.com"], // TODO change it to env
+        },
+    },
     contracts: {
         ...baseMainnet.contracts,
         unifiedBridge: {
