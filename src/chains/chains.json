@@ -1,0 +1,86 @@
+[
+    {
+        "indexedId": 0,
+        "chainId": 1,
+        "name": "Mainnet",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 1,
+        "chainId": 1101,
+        "name": "Polygon zkEVM",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 2,
+        "chainId": 3776,
+        "name": "Astar zkEVM",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 3,
+        "chainId": 196,
+        "name": "X Layer",
+        "gasTokenAddress": "0x75231F58b43240C9718Dd58B4967c5114342a86c",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 4,
+        "chainId": 4913,
+        "name": "OEV Network",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 5,
+        "chainId": 1511670449,
+        "name": "GPT Mainnet",
+        "gasTokenAddress": "0xCdb4A8742ed7D0259b51E3454C46C9D6C48d5e88",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 6,
+        "chainId": 1702448187,
+        "name": "Witness Chain",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 7,
+        "chainId": 994873017,
+        "name": "Prism",
+        "gasTokenAddress": "0xD9343a049D5DBd89CD19DC6BcA8c48fB3a0a42a7",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 8,
+        "chainId": 31415,
+        "name": "Wirex Paychain",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 10,
+        "chainId": 2355,
+        "name": "Silicon",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 12,
+        "chainId": 938,
+        "name": "Haust Mainnet",
+        "gasTokenAddress": "0xec3502A9f98f151aF52EE6CB423a0afE7bBF5A19",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 13,
+        "chainId": 752025,
+        "name": "Ternoa",
+        "gasTokenAddress": "0x03Be5C903c727Ee2C8C4e9bc0AcC860Cca4715e2",
+        "gasTokenNetwork": 0
+    }
+]

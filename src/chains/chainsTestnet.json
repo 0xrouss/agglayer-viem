@@ -1,0 +1,65 @@
+[
+    {
+        "indexedId": 0,
+        "chainId": 1,
+        "name": "Sepolia",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 1,
+        "chainId": 2442,
+        "name": "Polygon zkEVM Cardona",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 2,
+        "chainId": 6038361,
+        "name": "Astar zKyoto",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 7,
+        "chainId": 195,
+        "name": "X Layer Devnet",
+        "gasTokenAddress": "0xe223519d64C0A49e7C08303c2220251be6b70e1d",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 12,
+        "chainId": 1952959480,
+        "name": "Lumia Testnet",
+        "gasTokenAddress": "0x5787a0C1Ccf0C94D99fE5725120aB1f7482ed9E8",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 16,
+        "chainId": 1722641160,
+        "name": "Silicon Sepolia",
+        "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 17,
+        "chainId": 1570754601,
+        "name": "Haust Testnet",
+        "gasTokenAddress": "0x73B3Fcabe217701fC6A83137074955002C2e6C86",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 17,
+        "chainId": 1570754601,
+        "name": "Haust Testnet",
+        "gasTokenAddress": "0x73B3Fcabe217701fC6A83137074955002C2e6C86",
+        "gasTokenNetwork": 0
+    },
+    {
+        "indexedId": 18,
+        "chainId": 50591822,
+        "name": "Stavanger Testnet",
+        "gasTokenAddress": "0x6a7c3F4B0651d6DA389AD1d11D962ea458cDCA70",
+        "gasTokenNetwork": 0
+    }
+]
