@@ -1,4 +1,6 @@
-export const polygonRollupManagerABI = [
+import { Abi } from "viem";
+
+export const polygonRollupManagerABI: Abi = [
     {
         inputs: [
             {
