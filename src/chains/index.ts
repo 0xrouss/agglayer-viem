@@ -1,4 +1,4 @@
-import { Chain } from "viem";
+import { Chain, ChainContract, Client, PublicClient } from "viem";
 import { mainnet } from "./mainnet";
 import { polygonZkEvm } from "./polygonZkEvm";
 import { polygonZkEvmCardona } from "./polygonZkEvmCardona";
@@ -16,6 +16,33 @@ export { siliconSepolia } from "./siliconSepolia";
 export { xLayer } from "./xLayer";
 
 type Chains = Record<string, Chain>;
+
+export type ExtendedClient = Client & {
+    chain: Chain & {
+        contracts: {
+            unifiedBridge: ChainContract;
+        };
+        custom: {
+            aggLayerIndexedId: number;
+        };
+    };
+};
+
+export function assertExtendedClient(
+    client: Client
+): asserts client is ExtendedClient {
+    if (
+        client.chain !== undefined &&
+        client.chain.custom !== undefined &&
+        client.chain.contracts !== undefined &&
+        client.chain.contracts.unifiedBridge !== undefined &&
+        typeof client.chain.custom.aggLayerIndexedId === "number"
+    ) {
+        throw new Error(
+            "Client is not an ExtendedClient. Ensure you are using custom chains."
+        );
+    }
+}
 
 const mainnetChains: Chains = {
     mainnet,
