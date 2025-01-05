@@ -1,4 +1,4 @@
-import { decodeAbiParameters, Hash, PublicClient } from "viem";
+import { AbiEvent, decodeAbiParameters, Hash, PublicClient } from "viem";
 import { polygonZkEvmBridgeV2Abi } from "../abis";
 import { BridgeLogData } from "../types/bridge";
 
@@ -25,7 +25,13 @@ export async function getBridgeLogData(
 
 function decodedBridgeData(data: Hash): BridgeLogData {
     const abi = polygonZkEvmBridgeV2Abi;
-    const types = abi.filter((event) => event.name === "BridgeEvent");
+
+    // Type guard to filter only AbiEvent objects
+    const isAbiEvent = (item: any): item is AbiEvent => item.name !== undefined;
+
+    const types = abi
+        .filter(isAbiEvent)
+        .filter((event) => event.name === "BridgeEvent");
 
     if (!types.length) {
         throw new Error("Data not decoded");

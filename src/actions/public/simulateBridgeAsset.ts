@@ -1,7 +1,7 @@
-import { Account, Address, PublicClient } from "viem";
-import { getBridgeAddress } from "../../utils/getBridgeAddress";
+import { Account, Address, Client } from "viem";
 import { simulateContract } from "viem/actions";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
+import { assertExtendedClient } from "../../chains";
 
 /**
  * TODO
@@ -17,17 +17,30 @@ import { polygonZkEvmBridgeV2Abi } from "../../abis";
  * @returns
  */
 export async function simulateBridgeAsset(
-    client: PublicClient,
-    originNetwork: number,
-    destinationNetwork: number,
-    destinationAddress: Address,
-    amount: bigint,
-    token: Address,
-    forceUpdateGlobalExitRoot: Boolean,
-    permitData: string,
-    account: Account
-) {
-    const bridgeAddress: Address = getBridgeAddress(originNetwork);
+    client: Client,
+    args: {
+        destinationNetwork: number;
+        destinationAddress: Address;
+        amount: bigint;
+        token: Address;
+        forceUpdateGlobalExitRoot: Boolean;
+        permitData: string;
+        account: Account | Address;
+    }
+) /* TODO Add return type */ {
+    assertExtendedClient(client);
+
+    const {
+        destinationNetwork,
+        destinationAddress,
+        amount,
+        token,
+        forceUpdateGlobalExitRoot,
+        permitData,
+        account,
+    } = args;
+
+    const bridgeAddress: Address = client.chain.contracts.unifiedBridge.address;
 
     return simulateContract(client, {
         address: bridgeAddress,
