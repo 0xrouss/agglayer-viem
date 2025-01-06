@@ -2,6 +2,7 @@ import { Account, Address, Client } from "viem";
 import { simulateContract } from "viem/actions";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
 import { assertExtendedClient } from "../../chains";
+import { ZERO_ADDRESS, ZERO_DATA } from "../../constants";
 
 /**
  * TODO
@@ -16,15 +17,13 @@ import { assertExtendedClient } from "../../chains";
  * @param account
  * @returns
  */
-export async function simulateBridgeAsset(
+export async function simulateBridgeETH(
     client: Client,
     args: {
         destinationNetwork: number;
         destinationAddress: Address;
         amount: bigint;
-        token: Address;
         forceUpdateGlobalExitRoot: Boolean;
-        permitData: string;
         account: Account | Address;
     }
 ) /* TODO Add return type */ {
@@ -34,9 +33,7 @@ export async function simulateBridgeAsset(
         destinationNetwork,
         destinationAddress,
         amount,
-        token,
         forceUpdateGlobalExitRoot,
-        permitData,
         account,
     } = args;
 
@@ -50,9 +47,9 @@ export async function simulateBridgeAsset(
             destinationNetwork,
             destinationAddress,
             amount,
-            token,
+            ZERO_ADDRESS,
             forceUpdateGlobalExitRoot,
-            permitData,
+            ZERO_DATA,
         ],
         account,
         value: amount,

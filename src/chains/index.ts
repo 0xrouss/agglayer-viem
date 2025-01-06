@@ -36,7 +36,7 @@ export function assertExtendedClient(
         client.chain.custom !== undefined &&
         client.chain.contracts !== undefined &&
         client.chain.contracts.unifiedBridge !== undefined &&
-        typeof client.chain.custom.aggLayerIndexedId === "number"
+        typeof client.chain.custom.aggLayerIndexedId !== "number"
     ) {
         throw new Error(
             "Client is not an ExtendedClient. Ensure you are using custom chains."
