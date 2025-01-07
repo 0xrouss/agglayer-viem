@@ -1,13 +1,11 @@
 import { Account, Address, Client } from "viem";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
-import { getBridgeAddress } from "../../utils/getBridgeAddress";
 import { writeContract } from "viem/actions";
 import { assertExtendedClient } from "../../chains";
 
 /**
  * TODO
  * @param client
- * @param originNetwork
  * @param destinationNetwork
  * @param destinationAddress
  * @param amount

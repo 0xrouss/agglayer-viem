@@ -2,7 +2,7 @@ import { Account, Address, Client } from "viem";
 import { simulateContract } from "viem/actions";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
 import { assertExtendedClient } from "../../chains";
-import { ZERO_ADDRESS, ZERO_DATA } from "../../constants";
+import { ZERO_DATA } from "../../constants";
 
 /**
  * TODO
@@ -10,18 +10,22 @@ import { ZERO_ADDRESS, ZERO_DATA } from "../../constants";
  * @param destinationNetwork
  * @param destinationAddress
  * @param amount
+ * @param token
  * @param account
  * @param forceUpdateGlobalExitRoot
+ * @param permitData
  * @returns
  */
-export async function simulateBridgeETH(
+export async function simulateBridgeAsset(
     client: Client,
     args: {
         destinationNetwork: number;
         destinationAddress: Address;
         amount: bigint;
+        token: Address;
         account: Account | Address;
         forceUpdateGlobalExitRoot?: Boolean;
+        permitData?: string;
     }
 ) /* TODO Add return type */ {
     assertExtendedClient(client);
@@ -30,8 +34,10 @@ export async function simulateBridgeETH(
         destinationNetwork,
         destinationAddress,
         amount,
+        token,
         account,
         forceUpdateGlobalExitRoot = false,
+        permitData = ZERO_DATA,
     } = args;
 
     const bridgeAddress: Address = client.chain.contracts.unifiedBridge.address;
@@ -44,12 +50,11 @@ export async function simulateBridgeETH(
             destinationNetwork,
             destinationAddress,
             amount,
-            ZERO_ADDRESS,
+            token,
             forceUpdateGlobalExitRoot,
-            ZERO_DATA,
+            permitData,
         ],
         account,
-        value: amount,
         chain: client.chain,
     });
 }

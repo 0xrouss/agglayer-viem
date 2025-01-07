@@ -1,20 +1,19 @@
 import { Account, Address, Client } from "viem";
-import { getBridgeAddress } from "../../utils/getBridgeAddress";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
 import { writeContract } from "viem/actions";
 import { assertExtendedClient } from "../../chains";
+import { ZERO_DATA } from "../../constants";
 
 /**
  * TODO
  * @param client
- * @param originNetwork
  * @param destinationNetwork
  * @param destinationAddress
  * @param amount
  * @param token
- * @param forceUpdateGlobalExitRoot
- * @param permitData
  * @param account
+ * @param permitData
+ * @param forceUpdateGlobalExitRoot
  * @returns
  */
 export async function writeBridgeAsset(
@@ -24,9 +23,9 @@ export async function writeBridgeAsset(
         destinationAddress: Address;
         amount: bigint;
         token: Address;
-        forceUpdateGlobalExitRoot: Boolean;
-        permitData: string;
         account: Account | Address;
+        permitData?: string;
+        forceUpdateGlobalExitRoot?: Boolean;
     }
 ) /* TODO Add return type */ {
     assertExtendedClient(client);
@@ -36,9 +35,9 @@ export async function writeBridgeAsset(
         destinationAddress,
         amount,
         token,
-        forceUpdateGlobalExitRoot,
-        permitData,
         account,
+        permitData = ZERO_DATA,
+        forceUpdateGlobalExitRoot = false,
     } = args;
 
     const bridgeAddress: Address = client.chain.contracts.unifiedBridge.address;
@@ -56,7 +55,6 @@ export async function writeBridgeAsset(
             permitData,
         ],
         account,
-        value: amount,
         chain: client.chain,
     });
 }

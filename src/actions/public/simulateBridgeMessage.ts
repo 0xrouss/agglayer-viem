@@ -6,14 +6,13 @@ import { assertExtendedClient } from "../../chains";
 /**
  * TODO
  * @param client
- * @param originNetwork
  * @param destinationNetwork
  * @param destinationAddress
  * @param amount
  * @param token
- * @param forceUpdateGlobalExitRoot
- * @param permitData
  * @param account
+ * @param metadata
+ * @param forceUpdateGlobalExitRoot
  * @returns
  */
 export async function simulateBridgeMessage(
@@ -22,9 +21,9 @@ export async function simulateBridgeMessage(
         destinationNetwork: number;
         destinationAddress: Address;
         amount: bigint;
-        forceUpdateGlobalExitRoot: Boolean;
-        metadata: any; //TODO
         account: Account | Address;
+        metadata: any; //TODO
+        forceUpdateGlobalExitRoot?: Boolean;
     }
 ) /* TODO Add return type */ {
     assertExtendedClient(client);
@@ -33,9 +32,9 @@ export async function simulateBridgeMessage(
         destinationNetwork,
         destinationAddress,
         amount,
-        forceUpdateGlobalExitRoot,
-        metadata,
         account,
+        metadata,
+        forceUpdateGlobalExitRoot = false,
     } = args;
 
     const bridgeAddress: Address = client.chain.contracts.unifiedBridge.address;
