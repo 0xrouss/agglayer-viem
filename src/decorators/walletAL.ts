@@ -3,6 +3,7 @@ import {
     writeBridgeAsset,
     writeBridgeETH,
     writeBridgeMessage,
+    writeBridgeAndCall,
 } from "../actions/wallet";
 
 export type WalletActionsAL<
@@ -14,26 +15,38 @@ export type WalletActionsAL<
         destinationAddress: Address;
         amount: bigint;
         token: Address;
-        forceUpdateGlobalExitRoot: Boolean;
-        permitData: string;
         account: Account | Address;
+        permitData?: string;
+        forceUpdateGlobalExitRoot?: Boolean;
     }) => Promise<any>; //TODO
 
     writeBridgeETH: (args: {
         destinationNetwork: number;
         destinationAddress: Address;
         amount: bigint;
-        forceUpdateGlobalExitRoot: Boolean;
         account: Account | Address;
+        forceUpdateGlobalExitRoot?: Boolean;
     }) => Promise<any>; //TODO
 
     writeBridgeMessage: (args: {
         destinationNetwork: number;
         destinationAddress: Address;
         amount: bigint;
-        forceUpdateGlobalExitRoot: Boolean;
-        metadata: any; //TODO
         account: Account | Address;
+        metadata: any; //TODO
+        forceUpdateGlobalExitRoot?: Boolean;
+    }) => Promise<any>; //TODO
+
+    writeBridgeAndCall: (args: {
+        destinationNetwork: number;
+        callAddress: Address;
+        amount: bigint;
+        token: Address;
+        account: Account | Address;
+        fallbackAddress: Address;
+        calldata: string;
+        permitData?: string;
+        forceUpdateGlobalExitRoot?: Boolean;
     }) => Promise<any>; //TODO
 };
 
@@ -49,6 +62,7 @@ export function walletActionsAL() {
             writeBridgeAsset: (args) => writeBridgeAsset(client, args),
             writeBridgeETH: (args) => writeBridgeETH(client, args),
             writeBridgeMessage: (args) => writeBridgeMessage(client, args),
+            writeBridgeAndCall: (args) => writeBridgeAndCall(client, args),
         };
     };
 }

@@ -1,6 +1,7 @@
 import { Account, Chain, Address, Transport, Client } from "viem";
 import {
     isBridgeClaimed,
+    simulateBridgeAndCall,
     simulateBridgeAsset,
     simulateBridgeETH,
     simulateBridgeMessage,
@@ -16,8 +17,8 @@ export type PublicActionsAL<
         amount: bigint;
         token: Address;
         account: Account | Address;
-        forceUpdateGlobalExitRoot?: Boolean;
         permitData?: string;
+        forceUpdateGlobalExitRoot?: Boolean;
     }) => Promise<any>; //TODO
 
     simulateBridgeETH: (args: {
@@ -34,6 +35,18 @@ export type PublicActionsAL<
         amount: bigint;
         account: Account | Address;
         metadata: any; //TODO
+        forceUpdateGlobalExitRoot?: Boolean;
+    }) => Promise<any>; //TODO
+
+    simulateBridgeAndCall: (args: {
+        destinationNetwork: number;
+        callAddress: Address;
+        amount: bigint;
+        token: Address;
+        account: Account | Address;
+        fallbackAddress: Address;
+        calldata: string;
+        permitData?: string;
         forceUpdateGlobalExitRoot?: Boolean;
     }) => Promise<any>; //TODO
 
@@ -56,6 +69,8 @@ export function publicActionsAL() {
             simulateBridgeETH: (args) => simulateBridgeETH(client, args),
             simulateBridgeMessage: (args) =>
                 simulateBridgeMessage(client, args),
+            simulateBridgeAndCall: (args) =>
+                simulateBridgeAndCall(client, args),
             isBridgeClaimed: (args) => isBridgeClaimed(client, args),
         };
     };

@@ -1,29 +1,33 @@
 import { Account, Address, Client } from "viem";
 import { simulateContract } from "viem/actions";
-import { polygonZkEvmBridgeV2Abi } from "../../abis";
+import { bridgeExtensionAbi } from "../../abis";
 import { assertExtendedClient } from "../../chains";
-import { ZERO_DATA } from "../../constants";
+import { ZERO_ADDRESS, ZERO_DATA } from "../../constants";
 
 /**
  * TODO
  * @param client
  * @param destinationNetwork
- * @param destinationAddress
+ * @param callAddress
  * @param amount
  * @param token
  * @param account
+ * @param fallbackAddress
+ * @param calldata
  * @param permitData
  * @param forceUpdateGlobalExitRoot
  * @returns
  */
-export async function simulateBridgeAsset(
+export async function simulateBridgeAndCall(
     client: Client,
     args: {
         destinationNetwork: number;
-        destinationAddress: Address;
+        callAddress: Address;
         amount: bigint;
         token: Address;
         account: Account | Address;
+        fallbackAddress: Address;
+        calldata: string;
         permitData?: string;
         forceUpdateGlobalExitRoot?: Boolean;
     }
@@ -32,28 +36,33 @@ export async function simulateBridgeAsset(
 
     const {
         destinationNetwork,
-        destinationAddress,
+        callAddress,
         amount,
         token,
         account,
+        fallbackAddress,
+        calldata,
         permitData = ZERO_DATA,
         forceUpdateGlobalExitRoot = false,
     } = args;
 
-    const bridgeAddress: Address = client.chain.contracts.unifiedBridge.address;
+    const bridgeExt: Address = client.chain.contracts.bridgeExtension.address;
 
     return simulateContract(client, {
-        address: bridgeAddress,
-        abi: polygonZkEvmBridgeV2Abi,
-        functionName: "bridgeAsset",
+        address: bridgeExt,
+        abi: bridgeExtensionAbi,
+        functionName: "bridgeAndCall",
         args: [
-            destinationNetwork,
-            destinationAddress,
-            amount,
             token,
-            forceUpdateGlobalExitRoot,
+            amount,
             permitData,
+            destinationNetwork,
+            callAddress,
+            fallbackAddress,
+            calldata,
+            forceUpdateGlobalExitRoot,
         ],
+        value: token === ZERO_ADDRESS ? amount : 0n,
         account,
         chain: client.chain,
     });

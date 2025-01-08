@@ -21,6 +21,7 @@ export type ExtendedClient = Client & {
     chain: Chain & {
         contracts: {
             unifiedBridge: ChainContract;
+            bridgeExtension: ChainContract;
         };
         custom: {
             aggLayerIndexedId: number;
@@ -36,6 +37,7 @@ export function assertExtendedClient(
         client.chain.custom !== undefined &&
         client.chain.contracts !== undefined &&
         client.chain.contracts.unifiedBridge !== undefined &&
+        client.chain.contracts.bridgeExtension !== undefined &&
         typeof client.chain.custom.aggLayerIndexedId !== "number"
     ) {
         throw new Error(

@@ -20,9 +20,9 @@ export async function writeBridgeMessage(
         destinationNetwork: number;
         destinationAddress: Address;
         amount: bigint;
-        forceUpdateGlobalExitRoot: Boolean;
-        metadata: any; // TODO
         account: Account | Address;
+        metadata: any; // TODO
+        forceUpdateGlobalExitRoot?: Boolean;
     }
 ) /* TODO Add return type */ {
     assertExtendedClient(client);
@@ -31,9 +31,9 @@ export async function writeBridgeMessage(
         destinationNetwork,
         destinationAddress,
         amount,
-        forceUpdateGlobalExitRoot,
-        metadata,
         account,
+        metadata,
+        forceUpdateGlobalExitRoot = false,
     } = args;
 
     const bridgeAddress: Address = client.chain.contracts.unifiedBridge.address;
