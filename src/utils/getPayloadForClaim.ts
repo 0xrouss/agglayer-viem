@@ -4,9 +4,10 @@ import { BridgeApiClient } from "../api/BridgeApiClient";
 
 export async function getPayloadForClaim(
     client: PublicClient,
-    transactionHash: Hash
+    transactionHash: Hash,
+    bridgeIndex: number = 0
 ) {
-    const data = await getBridgeLogData(client, transactionHash);
+    const data = await getBridgeLogData(client, transactionHash, bridgeIndex);
     const {
         originNetwork,
         originTokenAddress,

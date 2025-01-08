@@ -4,7 +4,8 @@ import { BridgeLogData } from "../types/bridge";
 
 export async function getBridgeLogData(
     client: PublicClient,
-    transactionHash: Hash
+    transactionHash: Hash,
+    bridgeIndex: number = 0
 ): Promise<BridgeLogData> {
     const receipt = await client.getTransactionReceipt({
         hash: transactionHash,
@@ -19,7 +20,7 @@ export async function getBridgeLogData(
     if (!logs.length) {
         throw new Error("Log not found in receipt");
     }
-    const data = logs[0].data;
+    const data = logs[bridgeIndex].data;
     return decodedBridgeData(data);
 }
 
