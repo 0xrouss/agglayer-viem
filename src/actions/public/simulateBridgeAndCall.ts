@@ -1,7 +1,7 @@
 import { Account, Address, Client } from "viem";
 import { simulateContract } from "viem/actions";
 import { bridgeExtensionAbi } from "../../abis";
-import { assertExtendedClient } from "../../chains";
+import { getBridgeExtension } from "../../chains";
 import { ZERO_ADDRESS, ZERO_DATA } from "../../constants";
 
 /**
@@ -32,8 +32,6 @@ export async function simulateBridgeAndCall(
         forceUpdateGlobalExitRoot?: Boolean;
     }
 ) /* TODO Add return type */ {
-    assertExtendedClient(client);
-
     const {
         destinationNetwork,
         callAddress,
@@ -46,10 +44,10 @@ export async function simulateBridgeAndCall(
         forceUpdateGlobalExitRoot = false,
     } = args;
 
-    const bridgeExt: Address = client.chain.contracts.bridgeExtension.address;
+    const bridgeExtension = getBridgeExtension(client);
 
     return simulateContract(client, {
-        address: bridgeExt,
+        address: bridgeExtension.address,
         abi: bridgeExtensionAbi,
         functionName: "bridgeAndCall",
         args: [

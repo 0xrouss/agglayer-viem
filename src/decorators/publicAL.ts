@@ -1,5 +1,7 @@
 import { Account, Chain, Address, Transport, Client } from "viem";
 import {
+    getRollupCount,
+    getRollupDetails,
     isBridgeClaimed,
     simulateBridgeAndCall,
     simulateBridgeAsset,
@@ -54,6 +56,10 @@ export type PublicActionsAL<
         depositCount: number;
         originNetworkId: number;
     }) => Promise<any>; // TODO
+
+    getRollupDetails: (rollupId: number) => Promise<any>; // TODO
+
+    getRollupCount: () => Promise<any>; // TODO
 };
 
 export function publicActionsAL() {
@@ -72,6 +78,8 @@ export function publicActionsAL() {
             simulateBridgeAndCall: (args) =>
                 simulateBridgeAndCall(client, args),
             isBridgeClaimed: (args) => isBridgeClaimed(client, args),
+            getRollupDetails: (rollupId) => getRollupDetails(client, rollupId),
+            getRollupCount: () => getRollupCount(client),
         };
     };
 }

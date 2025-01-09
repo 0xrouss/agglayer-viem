@@ -1,6 +1,6 @@
 import { Client } from "viem";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
-import { assertExtendedClient } from "../../chains";
+import { getUnifiedBridge } from "../../chains";
 import { readContract } from "viem/actions";
 
 // TODO Add documentation
@@ -11,14 +11,12 @@ export async function isBridgeClaimed(
         originNetworkId: number;
     }
 ) /* TODO Add return type */ {
-    assertExtendedClient(client);
-
     const { depositCount, originNetworkId } = args;
 
-    const unifiedBridge = client.chain.contracts.unifiedBridge.address;
+    const unifiedBridge = getUnifiedBridge(client);
 
     return readContract(client, {
-        address: unifiedBridge,
+        address: unifiedBridge.address,
         abi: polygonZkEvmBridgeV2Abi,
         functionName: "isClaimed",
         args: [depositCount, originNetworkId],
