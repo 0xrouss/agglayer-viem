@@ -1,7 +1,7 @@
-import { Account, Address, Client } from "viem";
+import { Account, Address, Client, zeroAddress } from "viem";
 import { writeContract } from "viem/actions";
 import { bridgeExtensionAbi } from "../../abis";
-import { ZERO_ADDRESS, ZERO_DATA } from "../../constants";
+import { ZERO_DATA } from "../../constants";
 import { getBridgeExtension } from "../../chains";
 
 /**
@@ -60,7 +60,7 @@ export async function writeBridgeAndCall(
             calldata,
             forceUpdateGlobalExitRoot,
         ],
-        value: token === ZERO_ADDRESS ? amount : 0n,
+        value: token === zeroAddress ? amount : 0n,
         account,
         chain: client.chain,
     });

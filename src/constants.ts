@@ -1,4 +1,3 @@
-export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 export const ZERO_DATA = "0x";
 
 export const BASE_URL = "https://api-gateway.polygon.technology/api/v3";

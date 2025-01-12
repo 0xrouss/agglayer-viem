@@ -1,7 +1,7 @@
-import { Account, Address, Client } from "viem";
+import { Account, Address, Client, zeroAddress } from "viem";
 import { simulateContract } from "viem/actions";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
-import { ZERO_ADDRESS, ZERO_DATA } from "../../constants";
+import { ZERO_DATA } from "../../constants";
 import { getUnifiedBridge } from "../../chains";
 
 /**
@@ -42,7 +42,7 @@ export async function simulateBridgeETH(
             destinationNetwork,
             destinationAddress,
             amount,
-            ZERO_ADDRESS,
+            zeroAddress,
             forceUpdateGlobalExitRoot,
             ZERO_DATA,
         ],
