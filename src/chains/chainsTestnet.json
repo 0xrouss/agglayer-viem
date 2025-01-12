@@ -8,6 +8,13 @@
             "symbol": "ETH",
             "address": "0x0000000000000000000000000000000000000000",
             "network": 0
+        },
+        "api": {
+            "baseUrl": "https://api-gateway.polygon.technology/api/v3",
+            "version": "v3"
+        },
+        "explorer": {
+            "url": "https://sepolia.etherscan.io"
         }
     },
     {
@@ -20,30 +27,13 @@
             "symbol": "ETH",
             "address": "0x0000000000000000000000000000000000000000",
             "network": 0
-        }
-    },
-    {
-        "indexedId": 2,
-        "chainId": 6038361,
-        "name": "Astar zKyoto",
-        "rollupContract": "0x47193C28404c762E7E213A8099A8B3d72885cDdC",
-        "gasToken": {
-            "name": "Ether",
-            "symbol": "ETH",
-            "address": "0x0000000000000000000000000000000000000000",
-            "network": 0
-        }
-    },
-    {
-        "indexedId": 7,
-        "chainId": 195,
-        "name": "X Layer Devnet",
-        "rollupContract": "0x4e35Fc30B218DA8A47851E5F14de9f4B6D13e020",
-        "gasToken": {
-            "name": "OKB",
-            "symbol": "OKB",
-            "address": "0xe223519d64C0A49e7C08303c2220251be6b70e1d",
-            "network": 0
+        },
+        "api": {
+            "baseUrl": "https://api-gateway.polygon.technology/api/v3",
+            "version": "v3"
+        },
+        "explorer": {
+            "url": "https://cardona-zkevm.polygonscan.com"
         }
     },
     {
@@ -56,6 +46,13 @@
             "symbol": "LUMIA",
             "address": "0x5787a0C1Ccf0C94D99fE5725120aB1f7482ed9E8",
             "network": 0
+        },
+        "api": {
+            "baseUrl": "https://lumia-testnet-bridge-api.eu-north-2.gateway.fm",
+            "version": "v2"
+        },
+        "explorer": {
+            "url": "https://lumia-testnet-blockscout.eu-north-2.gateway.fm"
         }
     },
     {
@@ -68,6 +65,13 @@
             "symbol": "ETH",
             "address": "0x0000000000000000000000000000000000000000",
             "network": 0
+        },
+        "api": {
+            "baseUrl": "https://api-gateway.polygon.technology/api/v3",
+            "version": "v3"
+        },
+        "explorer": {
+            "url": "https://scope-sepolia.silicon.network"
         }
     },
     {
@@ -80,6 +84,13 @@
             "symbol": "HAUST",
             "address": "0x73B3Fcabe217701fC6A83137074955002C2e6C86",
             "network": 0
+        },
+        "api": {
+            "baseUrl": "https://haust-testnet-bridge-api.eu-north-2.gateway.fm",
+            "version": "v2"
+        },
+        "explorer": {
+            "url": "https://explorer-test.haust.network"
         }
     },
     {
@@ -92,6 +103,13 @@
             "symbol": "Z",
             "address": "0x7148Db73c78Ded8e4f81784A121Bbe7E163f4834",
             "network": 0
+        },
+        "api": {
+            "baseUrl": "https://zchain-testnet-bridge-api.eu-north-2.gateway.fm",
+            "version": "v2"
+        },
+        "explorer": {
+            "url": "https://zchain-testnet-blockscout.eu-north-2.gateway.fm"
         }
     },
     {
@@ -104,6 +122,13 @@
             "symbol": "POL",
             "address": "0x6a7c3F4B0651d6DA389AD1d11D962ea458cDCA70",
             "network": 0
+        },
+        "api": {
+            "baseUrl": "https://stavanger-bridge-api.eu-north-2.gateway.fm",
+            "version": "v2"
+        },
+        "explorer": {
+            "url": "https://stavanger-blockscout.eu-north-2.gateway.fm"
         }
     }
 ]
