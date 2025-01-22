@@ -1,6 +1,7 @@
 import { Hash, PublicClient } from "viem";
 import { getBridgeLogData } from "./getBridgeLogData";
-import { BridgeApiClient } from "../api/BridgeApiClient";
+import { chainsList } from "../chains";
+import { getMerkleProof } from "../api/getMerkleProof";
 
 export async function getPayloadForClaim(
     client: PublicClient,
@@ -18,22 +19,13 @@ export async function getPayloadForClaim(
         depositCount,
     } = data;
 
-    const apiClient = new BridgeApiClient();
-
-    if (
-        !client.chain?.custom ||
-        !client.chain?.custom.aggLayerIndexedId == null
-    ) {
-        console.log(client.chain);
-        throw new Error("Chain custom data not found");
+    if (!client.chain) {
+        throw new Error("Client does not have chain");
     }
 
-    const sourceNetworkId = client.chain?.custom.aggLayerIndexedId as number;
+    const chainConfig = chainsList[client.chain.id];
 
-    const response = await apiClient.getMerkleProof(
-        sourceNetworkId,
-        depositCount
-    );
+    const response = await getMerkleProof(client.chain.id, depositCount);
 
     if (!response.success) {
         throw new Error(response.error);
@@ -47,7 +39,7 @@ export async function getPayloadForClaim(
         smtProofRollup: response.data.rollup_merkle_proof,
         globalIndex: computeGlobalIndex(
             depositCount,
-            sourceNetworkId
+            chainConfig.rollupId
         ).toString(),
         mainnetExitRoot: response.data.main_exit_root,
         rollupExitRoot: response.data.rollup_exit_root,

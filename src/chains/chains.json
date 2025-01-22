@@ -1,6 +1,6 @@
 [
     {
-        "indexedId": 0,
+        "rollupId": 0,
         "chainId": 1,
         "name": "Mainnet",
         "gasToken": {
@@ -11,14 +11,15 @@
         },
         "api": {
             "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3"
+            "version": "v3",
+            "requiresPolygonApiKey": true
         },
         "explorer": {
             "url": "https://etherscan.io"
         }
     },
     {
-        "indexedId": 1,
+        "rollupId": 1,
         "chainId": 1101,
         "name": "Polygon zkEVM",
         "rollupContract": "0x519E42c24163192Dca44CD3fBDCEBF6be9130987",
@@ -30,14 +31,15 @@
         },
         "api": {
             "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3"
+            "version": "v3",
+            "requiresPolygonApiKey": true
         },
         "explorer": {
             "url": "https://zkevm.polygonscan.com/"
         }
     },
     {
-        "indexedId": 3,
+        "rollupId": 3,
         "chainId": 196,
         "name": "X Layer",
         "rollupContract": "0x2B0ee28D4D51bC9aDde5E58E295873F61F4a0507",
@@ -49,14 +51,15 @@
         },
         "api": {
             "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3"
+            "version": "v3",
+            "requiresPolygonApiKey": true
         },
         "explorer": {
             "url": "https://www.oklink.com/xlayer"
         }
     },
     {
-        "indexedId": 7,
+        "rollupId": 7,
         "chainId": 994873017,
         "name": "Prism",
         "rollupContract": "0x92726F7dE49300DBdb60930066bc1d0803c0740B",
@@ -68,14 +71,14 @@
         },
         "api": {
             "baseUrl": "https://prism-bridge-api.eu-north-2.gateway.fm",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://explorer.lumia.org"
         }
     },
     {
-        "indexedId": 8,
+        "rollupId": 8,
         "chainId": 31415,
         "name": "Wirex Paychain",
         "rollupContract": "0x78253E2E6120164bd826668A4C96Db20f78A94c9",
@@ -87,14 +90,14 @@
         },
         "api": {
             "baseUrl": "https://pay-chain-bridge-api.eu-central-6.gateway.fm",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://blockscout.wirexpaychain.com/"
         }
     },
     {
-        "indexedId": 10,
+        "rollupId": 10,
         "chainId": 2355,
         "name": "Silicon",
         "rollupContract": "0x419dcD0f72ebAFd3524b65a97ac96699C7fBebdB",
@@ -106,14 +109,15 @@
         },
         "api": {
             "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3"
+            "version": "v3",
+            "requiresPolygonApiKey": true
         },
         "explorer": {
             "url": "https://scope.silicon.network"
         }
     },
     {
-        "indexedId": 12,
+        "rollupId": 12,
         "chainId": 938,
         "name": "Haust Mainnet",
         "rollupContract": "0x505ce1246F7e2Fd899dc5d3cfB17A47500Eb58bC",
@@ -125,14 +129,14 @@
         },
         "api": {
             "baseUrl": "https://haust-network-bridge-api.eu-north-2.gateway.fm",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://haust-network-blockscout.eu-north-2.gateway.fm"
         }
     },
     {
-        "indexedId": 13,
+        "rollupId": 13,
         "chainId": 752025,
         "name": "Ternoa",
         "rollupContract": "0x7fF0B5fF6Eb8B789456639AC2A02487c338c1789",
@@ -144,7 +148,7 @@
         },
         "api": {
             "baseUrl": "https://bridge.zkevm.ternoa.network/service",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://explorer.zkevm.ternoa.network/"

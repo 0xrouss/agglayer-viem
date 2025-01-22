@@ -1,7 +1,7 @@
 [
     {
-        "indexedId": 0,
-        "chainId": 1,
+        "rollupId": 0,
+        "chainId": 11155111,
         "name": "Sepolia",
         "gasToken": {
             "name": "Ether",
@@ -11,14 +11,15 @@
         },
         "api": {
             "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3"
+            "version": "v3",
+            "requiresPolygonApiKey": true
         },
         "explorer": {
             "url": "https://sepolia.etherscan.io"
         }
     },
     {
-        "indexedId": 1,
+        "rollupId": 1,
         "chainId": 2442,
         "name": "Polygon zkEVM Cardona",
         "rollupContract": "0xA13Ddb14437A8F34897131367ad3ca78416d6bCa",
@@ -30,14 +31,15 @@
         },
         "api": {
             "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3"
+            "version": "v3",
+            "requiresPolygonApiKey": true
         },
         "explorer": {
             "url": "https://cardona-zkevm.polygonscan.com"
         }
     },
     {
-        "indexedId": 12,
+        "rollupId": 12,
         "chainId": 1952959480,
         "name": "Lumia Testnet",
         "rollupContract": "0x8603CF22EcB4343F82151201BCC4A40Bf6949b90",
@@ -49,14 +51,14 @@
         },
         "api": {
             "baseUrl": "https://lumia-testnet-bridge-api.eu-north-2.gateway.fm",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://lumia-testnet-blockscout.eu-north-2.gateway.fm"
         }
     },
     {
-        "indexedId": 16,
+        "rollupId": 16,
         "chainId": 1722641160,
         "name": "Silicon Sepolia",
         "rollupContract": "0x0947030d46917b307cd77F003beAC1b3EA6D7CF0",
@@ -68,14 +70,15 @@
         },
         "api": {
             "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3"
+            "version": "v3",
+            "requiresPolygonApiKey": true
         },
         "explorer": {
             "url": "https://scope-sepolia.silicon.network"
         }
     },
     {
-        "indexedId": 17,
+        "rollupId": 17,
         "chainId": 1570754601,
         "name": "Haust Testnet",
         "rollupContract": "0xF3eca1D175cD7811519E251A9E0c7F13C9217734",
@@ -87,14 +90,14 @@
         },
         "api": {
             "baseUrl": "https://haust-testnet-bridge-api.eu-north-2.gateway.fm",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://explorer-test.haust.network"
         }
     },
     {
-        "indexedId": 19,
+        "rollupId": 19,
         "chainId": 1668201165,
         "name": "WilderWorld Testnet",
         "rollupContract": "0xb86Ae60C76994E9DaE207881B5696fEb5BD0D695",
@@ -106,14 +109,14 @@
         },
         "api": {
             "baseUrl": "https://zchain-testnet-bridge-api.eu-north-2.gateway.fm",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://zchain-testnet-blockscout.eu-north-2.gateway.fm"
         }
     },
     {
-        "indexedId": 21,
+        "rollupId": 21,
         "chainId": 50591822,
         "name": "Stavanger Testnet",
         "rollupContract": "0x99bdeA7AcF8bA45cDC94410aB728ef2811ec9FF8",
@@ -125,7 +128,7 @@
         },
         "api": {
             "baseUrl": "https://stavanger-bridge-api.eu-north-2.gateway.fm",
-            "version": "v2"
+            "version": "v1"
         },
         "explorer": {
             "url": "https://stavanger-blockscout.eu-north-2.gateway.fm"

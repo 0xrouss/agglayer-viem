@@ -42,7 +42,6 @@ export type ApiResponse<T> = {
     error?: string;
 };
 
-export type GetTransactionsFromAddressResponse =
-    ApiResponse<TransactionsResponseData>;
+export type GetUserTransactions = ApiResponse<TransactionsResponseData>;
 
 export type GetMerkleProofResponse = ApiResponse<MerkleProofResponse["proof"]>;
