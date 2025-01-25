@@ -42,7 +42,7 @@ function decodedBridgeData(data: Hash): BridgeLogData {
     const [
         leafType,
         originNetwork,
-        originTokenAddress,
+        originAddress,
         destinationNetwork,
         destinationAddress,
         amount,
@@ -53,7 +53,7 @@ function decodedBridgeData(data: Hash): BridgeLogData {
     const result = {
         leafType,
         originNetwork,
-        originTokenAddress,
+        originAddress,
         destinationNetwork,
         destinationAddress,
         amount,

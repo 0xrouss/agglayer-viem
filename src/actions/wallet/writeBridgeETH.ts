@@ -2,7 +2,6 @@ import { Account, Address, Client, zeroAddress } from "viem";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
 import { writeContract } from "viem/actions";
 import { getUnifiedBridge } from "../../chains";
-import { ZERO_DATA } from "../../constants";
 
 /**
  * TODO
@@ -46,7 +45,7 @@ export async function writeBridgeETH(
             amount,
             zeroAddress,
             forceUpdateGlobalExitRoot,
-            ZERO_DATA,
+            "0x",
         ],
         account,
         value: amount,

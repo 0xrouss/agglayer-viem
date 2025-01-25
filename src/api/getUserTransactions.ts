@@ -1,7 +1,6 @@
 import { Address } from "viem";
 import { GetUserTransactions } from "../types/api";
 import { createUrl } from "./createUrl";
-import { BASE_URL } from "../constants";
 
 // TODO
 export async function getUserTransactions(
@@ -9,7 +8,7 @@ export async function getUserTransactions(
     page: number = 0,
     testnet: Boolean = false
 ): Promise<GetUserTransactions> {
-    let endpoint = BASE_URL;
+    let endpoint = "https://api-gateway.polygon.technology/api/v3";
 
     endpoint += testnet ? "/transactions/testnet" : "/transactions/mainnet";
 

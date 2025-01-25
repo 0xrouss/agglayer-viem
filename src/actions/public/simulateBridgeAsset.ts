@@ -1,7 +1,6 @@
 import { Account, Address, Client } from "viem";
 import { simulateContract } from "viem/actions";
 import { polygonZkEvmBridgeV2Abi } from "../../abis";
-import { ZERO_DATA } from "../../constants";
 import { getUnifiedBridge } from "../../chains";
 
 /**
@@ -34,7 +33,7 @@ export async function simulateBridgeAsset(
         amount,
         token,
         account,
-        permitData = ZERO_DATA,
+        permitData = "0x",
         forceUpdateGlobalExitRoot = false,
     } = args;
 

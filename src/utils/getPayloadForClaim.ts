@@ -11,7 +11,7 @@ export async function getPayloadForClaim(
     const data = await getBridgeLogData(client, transactionHash, bridgeIndex);
     const {
         originNetwork,
-        originTokenAddress,
+        originAddress,
         destinationNetwork,
         destinationAddress,
         amount,
@@ -44,7 +44,7 @@ export async function getPayloadForClaim(
         mainnetExitRoot: response.data.main_exit_root,
         rollupExitRoot: response.data.rollup_exit_root,
         originNetwork: originNetwork,
-        originTokenAddress: originTokenAddress,
+        originAddress: originAddress,
         destinationNetwork: destinationNetwork,
         destinationAddress: destinationAddress,
         amount: amount,
