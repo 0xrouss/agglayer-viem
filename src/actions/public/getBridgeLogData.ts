@@ -1,13 +1,15 @@
-import { AbiEvent, decodeAbiParameters, Hash, PublicClient } from "viem";
-import { polygonZkEvmBridgeV2Abi } from "../abis";
-import { BridgeLogData } from "../types/bridge";
+import { AbiEvent, decodeAbiParameters, Hash, Client } from "viem";
+import { polygonZkEvmBridgeV2Abi } from "../../abis";
+import { BridgeLogData } from "../../types/bridge";
+import { getTransactionReceipt } from "viem/actions";
 
+// TODO
 export async function getBridgeLogData(
-    client: PublicClient,
+    client: Client,
     transactionHash: Hash,
     bridgeIndex: number = 0
 ): Promise<BridgeLogData> {
-    const receipt = await client.getTransactionReceipt({
+    const receipt = await getTransactionReceipt(client, {
         hash: transactionHash,
     });
 

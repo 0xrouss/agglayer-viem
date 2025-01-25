@@ -1,13 +1,26 @@
-import { Hash, PublicClient } from "viem";
+import { Address, Hash, Hex, Client } from "viem";
 import { getBridgeLogData } from "./getBridgeLogData";
-import { chainsList } from "../chains";
-import { getMerkleProof } from "../api/getMerkleProof";
+import { chainsList } from "../../chains";
+import { getMerkleProof } from "../../api/getMerkleProof";
 
+// TODO
 export async function getPayloadForClaim(
-    client: PublicClient,
+    client: Client,
     transactionHash: Hash,
     bridgeIndex: number = 0
-) {
+): Promise<{
+    smtProof: Hash[];
+    smtProofRollup: Hash[];
+    globalIndex: BigInt;
+    mainnetExitRoot: Hash;
+    rollupExitRoot: Hash;
+    originNetwork: number;
+    originAddress: Address;
+    destinationNetwork: number;
+    destinationAddress: Address;
+    amount: BigInt;
+    metadata: Hex;
+}> {
     const data = await getBridgeLogData(client, transactionHash, bridgeIndex);
     const {
         originNetwork,
@@ -35,20 +48,20 @@ export async function getPayloadForClaim(
     }
 
     const payload = {
-        smtProof: response.data.merkle_proof,
-        smtProofRollup: response.data.rollup_merkle_proof,
+        smtProof: response.data.merkle_proof as Hash[],
+        smtProofRollup: response.data.rollup_merkle_proof as Hash[],
         globalIndex: computeGlobalIndex(
             depositCount,
             chainConfig.rollupId
-        ).toString(),
-        mainnetExitRoot: response.data.main_exit_root,
-        rollupExitRoot: response.data.rollup_exit_root,
-        originNetwork: originNetwork,
-        originAddress: originAddress,
-        destinationNetwork: destinationNetwork,
-        destinationAddress: destinationAddress,
-        amount: amount,
-        metadata: metadata,
+        ) as BigInt,
+        mainnetExitRoot: response.data.main_exit_root as Hash,
+        rollupExitRoot: response.data.rollup_exit_root as Hash,
+        originNetwork: originNetwork as number,
+        originAddress: originAddress as Address,
+        destinationNetwork: destinationNetwork as number,
+        destinationAddress: destinationAddress as Address,
+        amount: amount as BigInt,
+        metadata: metadata as Hex,
     };
     return payload;
 }

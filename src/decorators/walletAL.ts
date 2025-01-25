@@ -1,9 +1,11 @@
-import { Account, Chain, Address, Transport, Client } from "viem";
+import { Account, Chain, Address, Transport, Client, Hash, Hex } from "viem";
 import {
     writeBridgeAsset,
     writeBridgeETH,
     writeBridgeMessage,
     writeBridgeAndCall,
+    writeClaimAsset,
+    writeClaimMessage,
 } from "../actions/wallet";
 
 export type WalletActionsAL<
@@ -48,6 +50,36 @@ export type WalletActionsAL<
         permitData?: string;
         forceUpdateGlobalExitRoot?: Boolean;
     }) => Promise<any>; //TODO
+
+    writeClaimAsset: (args: {
+        smtProofLocalExitRoot: Hash[];
+        smtProofRollupExitRoot: Hash[];
+        globalIndex: BigInt;
+        mainnetExitRoot: Hash;
+        rollupExitRoot: Hash;
+        originNetwork: number;
+        originTokenAddress: Address;
+        destinationNetwork: number;
+        destinationAddress: Address;
+        amount: BigInt;
+        metadata: Hex;
+        account: Account | Address;
+    }) => Promise<any>;
+
+    writeClaimMessage: (args: {
+        smtProofLocalExitRoot: Hash[];
+        smtProofRollupExitRoot: Hash[];
+        globalIndex: BigInt;
+        mainnetExitRoot: Hash;
+        rollupExitRoot: Hash;
+        originNetwork: number;
+        originAddress: Address;
+        destinationNetwork: number;
+        destinationAddress: Address;
+        amount: BigInt;
+        metadata: Hex;
+        account: Account | Address;
+    }) => Promise<any>;
 };
 
 export function walletActionsAL() {
@@ -63,6 +95,8 @@ export function walletActionsAL() {
             writeBridgeETH: (args) => writeBridgeETH(client, args),
             writeBridgeMessage: (args) => writeBridgeMessage(client, args),
             writeBridgeAndCall: (args) => writeBridgeAndCall(client, args),
+            writeClaimAsset: (args) => writeClaimAsset(client, args),
+            writeClaimMessage: (args) => writeClaimMessage(client, args),
         };
     };
 }
