@@ -69,9 +69,9 @@
             "network": 0
         },
         "api": {
-            "baseUrl": "https://api-gateway.polygon.technology/api/v3",
-            "version": "v3",
-            "requiresPolygonApiKey": true
+            "baseUrl": "https://bridge-service-sepolia.silicon.network",
+            "version": "v1",
+            "requiresPolygonApiKey": false
         },
         "explorer": {
             "url": "https://scope-sepolia.silicon.network"

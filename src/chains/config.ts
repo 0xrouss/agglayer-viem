@@ -305,9 +305,9 @@ export const chainsList: Record<number, ChainConfig> = {
             blockCreated: 6_441_412,
         },
         api: {
-            baseUrl: "https://api-gateway.polygon.technology/api/v3",
-            version: "v3",
-            requiresPolygonApiKey: true,
+            baseUrl: "https://bridge-service-sepolia.silicon.network",
+            version: "v1",
+            requiresPolygonApiKey: false,
         },
         testnet: true,
     },

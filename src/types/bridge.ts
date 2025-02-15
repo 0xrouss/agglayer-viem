@@ -1,7 +1,7 @@
 export type BridgeLogData = {
     leafType: any;
     originNetwork: any;
-    originAddress: any;
+    originTokenAddress: any;
     destinationNetwork: any;
     destinationAddress: any;
     amount: any;
